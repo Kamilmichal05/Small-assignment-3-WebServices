@@ -22,18 +22,18 @@ public class PostRepositoryTests
 
     private static List<Post> CreateFakePosts()
     {
-        var grayskullFaker = new Faker<Post>
+        var grayskullFaker = new Faker<Post>()
         .RuleFor(p => p.Title, f => $"{f.Lorem.Sentence(3)} Grayskull")
         .RuleFor(p => p.Author, _ => "He-Man");
 
-        var stallmanFaker = new Faker<Post>
+        var stallmanFaker = new Faker<Post>()
         .RuleFor(p => p.Title, f => $"{f.Lorem.Sentence(3)} Hack the planet!")
         .RuleFor(p => p.Author, _ => "Richard Stallman");
 
         return new List<Post>
         {
-            grayskullFaker.Generate()
-            grayskullFaker.Generate()
+            grayskullFaker.Generate(),
+            grayskullFaker.Generate(),
             stallmanFaker.Generate()
         };
     }
