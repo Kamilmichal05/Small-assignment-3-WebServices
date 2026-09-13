@@ -45,4 +45,6 @@ public class PostRepositoryTests
         var result = sut.GetAllPosts("", "");
         Assert.AreEqual(3, result.Count());
     }
+
+    // Næstu testin koma hér
 }
