@@ -39,12 +39,26 @@ public class PostRepositoryTests
     }
 
     [TestMethod]
-    public void GetAllPosts_NoFilter_ShouldContainAListOfTwo()
+    public void GetAllPosts_NoFilter_ShouldContainAListOfThree()
     {
         var sut = CreateSut();
         var result = sut.GetAllPosts("", "");
         Assert.AreEqual(3, result.Count());
     }
 
-    // Næstu testin koma hér
+    [TestMethod]
+    public void GetAllPosts_FilteredByTitle_ShouldContainAListOfTwo()
+    {
+        var sut = CreateSut();
+        var result = sut.GetAllPosts("Grayskull", "");
+        Assert.AreEqual(2, result.Count());
+    }
+
+    [TestMethod]
+    public void GetAllPosts_FilteredByAuthor_ShouldContainAListOfOne()
+    {
+        var sut = CreateSut();
+        var result = sut.GetAllPosts("", "Stallman");
+        Assert.AreEqual(1, result.Count());
+    }
 }
